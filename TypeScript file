@@ -1,0 +1,36 @@
+import { Component } from '@angular/core';
+
+interface Task {
+  title: string;
+  description: string;
+  status: string;
+}
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  newTask: Task = { title: '', description: '', status: 'pending' };
+  tasks: Task[] = [];
+  filterStatus: string = '';
+
+  addTask() {
+    if (this.newTask.title && this.newTask.description) {
+      this.tasks.push({ ...this.newTask });
+      this.newTask = { title: '', description: '', status: 'pending' };
+    }
+  }
+
+  deleteTask(taskToDelete: Task) {
+    this.tasks = this.tasks.filter(task => task !== taskToDelete);
+  }
+
+  updateStatus(taskToUpdate: Task) {
+    const index = this.tasks.indexOf(taskToUpdate);
+    if (index !== -1) {
+      this.tasks[index].status = this.tasks[index].status === 'completed' ? 'pending' : 'completed';
+    }
+  }
+}
