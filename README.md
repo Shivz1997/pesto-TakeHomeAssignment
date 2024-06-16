@@ -1,9 +1,10 @@
 # pesto-TakeHomeAssignment
 Pesto Take Home Assignment 
 
-HTML File
+HTML File:
+-----------
 
-(app.component.html)
+(app.component.html) -- file name
 HTML code for te task managemnet application consists of 3 major parts:
 
 1. Task Form:
@@ -28,6 +29,9 @@ HTML code for te task managemnet application consists of 3 major parts:
 The Angular directives like [(ngModel)] and *ngFor bind parts of your template to your component’s properties and methods, enabling dynamic updates and interaction.
 
 CSS File:
+---------
+
+(app.component.css) - file name
 
 1. General Styles;
 
@@ -54,4 +58,44 @@ CSS File:
    * .task-filter select: Styles the filter dropdown to match the form inputs with padding, rounded borders, a light border color, and an auto width to adjust based on content.
 
 This CSS enhances the visual appeal of your task management application by adding spacing, colors, and interactive elements like hover states.
-     
+
+  TypeScript File:
+  -----------------
+
+  (app.component.ts) -- file name
+
+  Detailed Explaination of typescript file:
+
+  1. Import Statements:
+
+     import { Component } from '@angular/core';: This imports the Component decorator from Angular’s core library, which is used to define a class as a component in Angular.
+
+  2. Task Interface:
+
+     interface Task: Defines a TypeScript interface named Task, which represents the structure of a task object with three properties: title, description, and status, all of which are strings.
+
+  3. Component Decorator:
+
+     * @Component({...}): The @Component decorator defines metadata for the component, including its selector, template URL, and style URLs.
+     * selector: 'app-root': This is the custom HTML tag that will be used to insert this component into other templates.
+     * templateUrl: Points to the HTML file that contains the template for this component.
+     * styleUrls: Points to the CSS file that contains styles for this component.
+
+   4. AppComponent Class:
+
+      * export class AppComponent: This line exports the class so it can be imported into other parts of your application.
+      * Inside the class, three properties are defined:
+          1)  newTask: Task: Holds the data for a new task being created. It’s initialized with empty strings for title and description, and ‘pending’ as the default status.
+          2) tasks: Task[]: An array to store all tasks. It’s typed with the Task interface.
+          3) filterStatus: string: A string to hold the current filter status selected by the user.
+
+    5. Methods:
+
+       * addTask(): This method adds a new task to the tasks array if both title and description are provided. After adding, it resets newTask to its initial state.
+       * deleteTask(taskToDelete: Task): This method filters out the task to be deleted from the tasks array.
+       * updateStatus(taskToUpdate: Task): This method toggles the status of a task between ‘completed’ and ‘pending’.
+
+
+This TypeScript code works together with your HTML template and CSS styles to create a dynamic and interactive task management application using Angular.
+
+  
