@@ -1,0 +1,14 @@
+import { Pipe, PipeTransform } from '@angular/core';
+import { Task } from './app.component';
+
+@Pipe({
+  name: 'filterTasks'
+})
+export class FilterTasksPipe implements PipeTransform {
+
+  transform(tasks: Task[], status: string): Task[] {
+    if (!status) return tasks;
+    return tasks.filter(task => task.status === status);
+  }
+
+}
