@@ -1,0 +1,27 @@
+<div class="task-form">
+  <input type="text" [(ngModel)]="newTask.title" placeholder="Title">
+  <input type="text" [(ngModel)]="newTask.description" placeholder="Description">
+  <select [(ngModel)]="newTask.status">
+    <option value="pending">Pending</option>
+    <option value="in-progress">In Progress</option>
+    <option value="completed">Completed</option>
+  </select>
+  <button (click)="addTask()">Add Task</button>
+</div>
+
+<div class="task-filter">
+  <select [(ngModel)]="filterStatus">
+    <option value="">All</option>
+    <option value="pending">Pending</option>
+    <option value="in-progress">In Progress</option>
+    <option value="completed">Completed</option>
+  </select>
+</div>
+
+<ul class="task-list">
+  <li *ngFor="let task of tasks | filterTasks:filterStatus">
+    {{ task.title }} - {{ task.description }} - {{ task.status }}
+    <button (click)="deleteTask(task)">Delete</button>
+    <button (click)="updateStatus(task)">Update Status</button>
+  </li>
+</ul>
