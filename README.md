@@ -1,6 +1,50 @@
 # pesto-TakeHomeAssignment
 Pesto Take Home Assignment 
 
+Step-by-step guide to run the program:
+---------------------------------------
+1) Install Node.js and npm:
+
+    Download and install Node.js from nodejs.org. npm (Node Package Manager) is included with Node.js.
+
+2) Install Angular CLI:
+
+   Open your terminal or command prompt and run npm install -g @angular/cli. This installs the Angular Command Line Interface globally on your machine.
+
+3) Create a new angular project:
+
+   In the terminal, navigate to the directory where you want your project and run ng new project-name (desired name).
+
+4) Navigate to Your Project:
+
+   Run ng serve inside your project directory. This will compile the application and start a web server.
+
+5) Open the Application:
+
+   Open your web browser and go to http://localhost:4200/. You should see your new Angular application running.
+
+6) Add HTML, CSS and TypeScript:
+
+  * Place HTML in the src/app/app.component.html file.
+  * Place CSS in the src/app/app.component.css file.
+  * Place TypeScript logic in the src/app/app.component.ts file.
+
+7) Run your Application Again:
+
+   * If you’ve made changes while ng serve is running, it should automatically compile and update in the browser.
+   * If not, stop the server with Ctrl+C and run ng serve again.
+     
+Note:
+-----
+
+Remember to save all files after making changes, and they should be reflected in the browser once compiled.
+   
+   
+
+CODE EXPLAINATION IN DETAIL:
+-----------------------------
+
+
 HTML File:
 -----------
 
@@ -98,4 +142,30 @@ This CSS enhances the visual appeal of your task management application by addin
 
 This TypeScript code works together with your HTML template and CSS styles to create a dynamic and interactive task management application using Angular.
 
-  
+  Angular Pipe:
+  -------------
+
+  (filter-tasks.peipe.ts) -- file name
+
+  Detailed explaination:
+
+  1. Import Statements:
+
+     * import { Pipe, PipeTransform } from '@angular/core';: This imports the Pipe decorator and the PipeTransform interface from Angular’s core library, which are used to define a custom pipe and its transformation method, respectively.
+
+  2. Pipe Decorator:
+
+     @Pipe({ name: 'filterTasks' }): The @Pipe decorator defines metadata for the pipe, including its name, which is used in templates to apply the pipe.
+
+  3. FilterTaksPipe Class:
+
+     *  export class FilterTasksPipe implements PipeTransform: This line exports the class and implements the PipeTransform interface, which requires the class to have a transform method.
+     *  The class has one method:
+                                  transform(tasks: any[], filterStatus: string): any[]: The transform method takes two parameters: an array of tasks and a filter status string. It returns an array of tasks filtered by the given status.
+
+     4. Transformation Logic: Inside the transform method
+
+        * If filterStatus is ‘all’, it returns the original tasks array without filtering.
+        * Otherwise, it uses the filter method to return only those tasks whose status matches the filterStatus.
+
+This custom pipe is used in your Angular template to dynamically filter and display tasks based on their status. It’s a powerful feature of Angular that allows to create reusable transformations for your data.
