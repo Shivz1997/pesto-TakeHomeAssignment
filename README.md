@@ -2,6 +2,7 @@
 Pesto Take Home Assignment 
 
 FRONT-END REQUIREMENT:
+-------------------------
 Step-by-step guide to run the program:
 ---------------------------------------
 1) Install Node.js and npm:
